@@ -3,7 +3,7 @@ import { Church, ShieldCheck, Landmark } from 'lucide-react';
 import { Testimonial } from '@/components/auth/shared';
 import { ModeToggle } from '@parishbooks-ui/design-system/mode-toggle';
 
-export default function AuthLayout({ children }: { children: React.ReactNode }) {
+export default function AuthLayout({ children }: LayoutProps<'/'>) {
     return (
         <div className="flex min-h-svh flex-col bg-background text-foreground">
             <header className="flex items-center justify-between border-b border-border/60 px-6 py-5 sm:px-10">
