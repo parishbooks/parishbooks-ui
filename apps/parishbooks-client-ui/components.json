@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "base-maia",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "../../libs/shared/design-system/src/styles/globals.css",
+    "baseColor": "mist",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "iconLibrary": "lucide",
+  "rtl": false,
+  "aliases": {
+    "components": "@parishbooks-ui/design-system/ui",
+    "utils": "@parishbooks-ui/design-system/utils",
+    "ui": "@parishbooks-ui/design-system/ui",
+    "lib": "@parishbooks-ui/design-system",
+    "hooks": "@parishbooks-ui/design-system/hooks"
+  },
+  "menuColor": "default",
+  "menuAccent": "subtle",
+  "registries": {}
+}

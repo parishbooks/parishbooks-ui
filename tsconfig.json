@@ -4,10 +4,13 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/parishbooks-client-ui-e2e"
+      "path": "./apps/parishbooks-client-ui"
     },
     {
-      "path": "./apps/parishbooks-client-ui"
+      "path": "./libs/shared/design-system"
+    },
+    {
+      "path": "./libs/shared/api-client"
     }
   ]
 }

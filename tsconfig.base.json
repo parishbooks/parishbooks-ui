@@ -16,6 +16,12 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["@parishbooks-ui/source"]
+    "customConditions": ["@parishbooks-ui/source"],
+    "paths": {
+      "@parishbooks-ui/design-system": ["libs/shared/design-system/src/index.ts"],
+      "@parishbooks-ui/design-system/*": ["libs/shared/design-system/src/*"],
+      "@parishbooks-ui/api-client": ["libs/shared/api-client/src/index.ts"],
+      "@parishbooks-ui/api-client/generated/*": ["libs/shared/api-client/src/generated/*"]
+    }
   }
 }
