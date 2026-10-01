@@ -1,18 +1,13 @@
-import Link from 'next/link';
-import { Church, ShieldCheck, Landmark } from 'lucide-react';
+import { ShieldCheck, Landmark } from 'lucide-react';
 import { Testimonial } from '@/components/auth/shared';
 import { ModeToggle } from '@parishbooks-ui/design-system/mode-toggle';
+import { SiteBrand } from '@parishbooks-ui/site-ui';
 
 export default function AuthLayout({ children }: LayoutProps<'/'>) {
     return (
         <div className="flex min-h-svh flex-col bg-background text-foreground">
             <header className="flex items-center justify-between border-b border-border/60 px-6 py-5 sm:px-10">
-                <Link href="/sign-in" className="flex items-center gap-2 text-base font-semibold tracking-tight">
-                    <span className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm">
-                        <Church className="size-4" />
-                    </span>
-                    ParishBooks
-                </Link>
+                <SiteBrand href="/sign-in" className="text-base" />
                 <div className="flex items-center gap-4">
                     <div className="hidden items-center gap-2 text-xs font-medium text-muted-foreground sm:flex">
                         <span className="size-2 rounded-full bg-emerald-500" /> Trusted by parishes nationwide

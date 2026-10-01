@@ -7,11 +7,13 @@ Nx workspace for ParishBooks web UIs. Multiple Next.js apps share libraries; eac
 ```
 apps/
   parishbooks-client-ui/       # Parish admin client (Next.js App Router)
-  <future-app>/                # e.g. public site, kiosk — same patterns
+  parishbooks-web-ui/          # Marketing site (Next.js App Router)
+  <future-app>/                # e.g. kiosk — same patterns
 
 libs/
   shared/
     design-system/             # shadcn/ui, theme, Tailwind globals, cn()
+    site-ui/                   # Cross-app shell: Container, SiteBrand, marketing primitives
     api-client/                # OpenAPI-generated clients + createApiClient()
   client/                      # (future) auth/session shared by parish-facing apps
 ```
@@ -22,9 +24,10 @@ libs/
 | ----- | ---- |
 | **App** | `src/app` routes, `proxy.ts`, server actions, dashboard/auth shells, env overrides (`CLIENT_UI_ORIGIN`) |
 | **design-system** | Reusable UI primitives, `globals.css`, `ThemeProvider`, hooks like `useIsMobile` |
+| **site-ui** | Shared layout/brand between `parishbooks-web-ui` and `parishbooks-client-ui`; marketing token bridge CSS |
 | **api-client** | Gateway axios clients generated from `parishbooks-svc` OpenAPI |
 
-New apps should depend on `@parishbooks-ui/design-system` and `@parishbooks-ui/api-client`, not copy components.
+New apps should depend on `@parishbooks-ui/design-system` and `@parishbooks-ui/api-client`, not copy components. Parish-facing surfaces also use `@parishbooks-ui/site-ui`.
 
 ## Nx tags & boundaries
 
@@ -45,7 +48,7 @@ Two layers (unlike `parishbooks-svc`, where one root `.env` feeds every Nest app
 | File | Purpose |
 | ---- | ------- |
 | **Root** `.env.example` → `.env.local` | Shared gateway URL, `NEXT_PUBLIC_*`, service hosts for OpenAPI codegen |
-| **Per app** `apps/<name>/.env.example` → `.env.local` | App origin, ports, secrets only that app needs |
+| **Per app** `apps/<name>/.env.example` → `.env.local` | Dev port (`CLIENT_UI_PORT` / `MARKETING_WEB_UI_PORT`, `PORT`), public origin URL, app secrets |
 
 Next.js loads env from the **app directory**; `next.config.js` also loads the **workspace root** so you do not duplicate gateway/service host variables in every app.
 
@@ -55,7 +58,9 @@ OpenAPI generation reads the **workspace root** `.env.local` (`libs/shared/api-c
 
 ```bash
 bun run dev                    # parishbooks-client-ui
+bun run dev:web                # parishbooks-web-ui (port from apps/parishbooks-web-ui/.env.local)
 bun run build
+bun run build:web
 bun run openapi:generate       # @parishbooks-ui/api-client
 bun run lint                   # all projects
 nx g @nx/next:app <name>       # scaffold another UI app

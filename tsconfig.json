@@ -11,6 +11,12 @@
     },
     {
       "path": "./libs/shared/api-client"
+    },
+    {
+      "path": "./apps/parishbooks-web-ui"
+    },
+    {
+      "path": "./libs/shared/site-ui"
     }
   ]
 }

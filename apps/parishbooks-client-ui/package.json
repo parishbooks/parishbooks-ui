@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "@parishbooks-ui/api-client": "workspace:*",
-    "@parishbooks-ui/design-system": "workspace:*"
+    "@parishbooks-ui/design-system": "workspace:*",
+    "@parishbooks-ui/site-ui": "workspace:*"
   },
   "nx": {
     "sourceRoot": "apps/parishbooks-client-ui/src",

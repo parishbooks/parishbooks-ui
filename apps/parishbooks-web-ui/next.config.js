@@ -10,7 +10,7 @@ dotenv.config({ path: path.join(__dirname, '.env.local') });
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['@parishbooks-ui/design-system', '@parishbooks-ui/api-client', '@parishbooks-ui/site-ui'],
+  transpilePackages: ['@parishbooks-ui/design-system', '@parishbooks-ui/site-ui'],
 };
 
 module.exports = nextConfig;

@@ -21,7 +21,9 @@
       "@parishbooks-ui/design-system": ["libs/shared/design-system/src/index.ts"],
       "@parishbooks-ui/design-system/*": ["libs/shared/design-system/src/*"],
       "@parishbooks-ui/api-client": ["libs/shared/api-client/src/index.ts"],
-      "@parishbooks-ui/api-client/generated/*": ["libs/shared/api-client/src/generated/*"]
+      "@parishbooks-ui/api-client/generated/*": ["libs/shared/api-client/src/generated/*"],
+      "@parishbooks-ui/site-ui": ["libs/shared/site-ui/src/index.ts"],
+      "@parishbooks-ui/site-ui/*": ["libs/shared/site-ui/src/*"]
     }
   }
 }
